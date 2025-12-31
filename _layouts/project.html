@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<main class="project">
+  <article>
+    <header class="project-header">
+      <h1>{{ page.title }}</h1>
+
+      {% if page.status %}
+        {% include project-status.html status=page.status %}
+      {% endif %}
+    </header>
+
+    <p class="project-description">
+      {{ page.description }}
+    </p>
+
+    <div class="project-content">
+      {{ content }}
+    </div>
+
+    <!-- tags -->
+    {% if page.tags %}
+      <p class="tags">
+        {% for tag in page.tags %}
+          <a href="{{ '/tags/' | append: tag | append: '/' | relative_url }}">
+            #{{ tag }}
+          </a>
+        {% endfor %}
+      </p>
+    {% endif %}
+  </article>
+</main>
+
+

@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<main class="tag">
+  <header>
+    <h1>Tag: {{ page.tag }}</h1>
+  </header>
+
+  {% assign tagged_posts = site.posts | where_exp: "post", "post.tags contains page.tag" %}
+  {% assign tagged_projects = site.projects | where_exp: "project", "project.tags contains page.tag" %}
+
+  {% if tagged_posts.size > 0 %}
+    <section>
+      <h2>Posts</h2>
+      <div class="cards">
+        {% for post in tagged_posts %}
+          <a class="card hover-raise" href="{{ post.url | relative_url }}">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+
+  {% if tagged_projects.size > 0 %}
+    <section>
+      <h2>Projects</h2>
+      <div class="cards">
+        {% for project in tagged_projects %}
+          <a class="card hover-raise" href="{{ project.url | relative_url }}">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endif %}
+</main>

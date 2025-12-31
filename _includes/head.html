@@ -1,0 +1,43 @@
+<head>
+  <!-- meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="author" content="{{ site.data.site.author.name }}">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} · {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}/assets/og/default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+
+  <!-- links -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/base.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/nav.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/hero.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/sections.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/section-about.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cards.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/scroll-top.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/tags.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/footer.css">
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+</head>

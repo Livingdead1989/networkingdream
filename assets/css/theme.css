@@ -1,0 +1,39 @@
+/* ============================
+   Theme Variables
+============================ */
+
+:root {
+  /* Colors */
+  --bg: #0f1512;          /* Background color */
+  --text: #e6efe9;        /* Text color */
+  --accent: #7fbf9a;      /* Accent color */
+  --accent-dark: #5b8f72; /* Darker accent */
+  --accent-warm: #d6b866; /* Warm accent */
+  --panel: #18211d;       /* Panel background */
+  
+  /* Hover effects */
+  --hover-duration: 260ms;
+  --hover-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Motion settings */
+  --motion-fast: 160ms;
+  --motion-slow: 400ms;
+  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  
+  /* Theme toggle */
+  --theme-light-bg: #2a3a32;
+  --theme-dark-bg: #0f1512;
+  --theme-light-text: #c2cac4;
+  --theme-dark-text: #e6efe9;
+}
+
+/* Theme-related overrides (example) */
+[data-theme="dark"] {
+  --bg: var(--theme-dark-bg);
+  --text: var(--theme-dark-text);
+}
+
+[data-theme="light"] {
+  --bg: var(--theme-light-bg);
+  --text: var(--theme-light-text);
+}

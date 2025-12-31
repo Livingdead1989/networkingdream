@@ -1,0 +1,70 @@
+/* ============================
+   Scroll to top
+============================ */
+
+.scroll-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  cursor: pointer;
+  z-index: 999;
+  background: linear-gradient(180deg, rgba(127,191,154,0.12), rgba(24,33,29,0.92));
+  border: 2px solid rgba(127,191,154,0.28);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.96);
+  transition: opacity var(--hover-duration) var(--hover-ease),
+              transform var(--hover-duration) var(--hover-ease);
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top:hover {
+  box-shadow:
+    0 12px 32px rgba(0,0,0,0.45),
+    inset 0 0 0 1px rgba(214,184,102,0.35),
+    0 0 18px rgba(127,191,154,0.35);
+}
+
+.scroll-top svg { position: absolute; }
+
+.scroll-top-icon {
+  z-index: 1;
+}
+
+.progress-ring__track {
+  fill: none;
+  stroke: rgba(255,255,255,0.12);
+  stroke-width: 3;
+}
+
+.progress-ring__progress {
+  fill: none;
+  stroke: url(#scrollGradient);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  stroke-dasharray: 113;
+  stroke-dashoffset: 113;
+  transition: stroke-dashoffset 0.35s ease-out;
+}
+
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-top {
+      transition:
+        box-shadow var(--hover-duration) var(--hover-ease),
+        transform var(--hover-duration) var(--hover-ease);
+    }
+  }

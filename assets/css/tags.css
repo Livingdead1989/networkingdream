@@ -1,0 +1,13 @@
+.tags {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.tags a {
+  margin-right: 0.6em;
+  opacity: 0.8;
+}
+
+.tags a:hover {
+  opacity: 1;
+}
