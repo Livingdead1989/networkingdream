@@ -2,21 +2,8 @@
    Hero
 ============================ */
 header {
-      padding: 6rem 2rem 5rem;
+      padding: 1rem 2rem;
       text-align: center;
-    }
-
-
-    header h1 {
-      font-size: 2.6rem;
-      margin: 0.5rem 0;
-      letter-spacing: 0.05em;
-    }
-
-    header p {
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.85;
     }
     
 .hero {
@@ -55,9 +42,9 @@ header {
     }
 
     .hero h1 {
-      font-size: clamp(2.4rem, 4vw, 3rem);
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      letter-spacing: clamp(0.02em, 0.06vw, 0.06em);
       margin: 0 0 1rem;
-      letter-spacing: 0.06em;
     }
 
     .hero-tagline {

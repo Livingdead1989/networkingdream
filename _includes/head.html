@@ -1,9 +1,7 @@
 <head>
-  <!-- meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="author" content="{{ site.data.site.author.name }}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <title>
     {% if page.title %}
@@ -12,6 +10,27 @@
       {{ site.title }}
     {% endif %}
   </title>
+
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="author" content="{{ site.data.site.author.name }}">
+
+  <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/nav.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/hero.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/cards.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/footer.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/scroll-top.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/section-about.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/sections.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/tag-pills.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/tags.css' | relative_url }}" />
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
   <!-- Open Graph / Social -->
   <meta property="og:site_name" content="{{ site.title }}">
@@ -23,21 +42,5 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-
-
-  <!-- links -->
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/theme.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/base.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/nav.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/hero.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/sections.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/section-about.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/cards.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/scroll-top.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/tags.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/footer.css">
-
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
 </head>

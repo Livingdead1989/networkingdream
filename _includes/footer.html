@@ -24,17 +24,22 @@
                 <div class="footer-social-group">
                     <span class="footer-social-label">Social</span>
                     <div class="social-circles">
-                        <a href="https://github.com/" class="circle" aria-label="GitHub" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.3 6.8 9.6.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.3 1.1 2.9.9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 .9-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 015 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7.9 1.6.9 2.7 0 3.9-2.4 4.7-4.7 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5a10.2 10.2 0 006.9-9.6C22 6.6 17.5 2 12 2z"/></svg></a>
-                        <a href="https://mastodon.social/" class="circle" aria-label="Mastodon" title="Mastodon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13.5c-.6 3-3.4 3.2-5.7 3.5-1.2.1-2.3.3-3.3.3-1 0-2.1-.2-3.3-.3-2.3-.3-5.1-.5-5.7-3.5-.4-2.1-.4-5.4-.4-5.4 0-4.4 2.9-5.7 2.9-5.7 1.5-.7 4.1-1 6.5-1h.1c2.4 0 5 .3 6.5 1 0 0 2.9 1.3 2.9 5.7 0 0 0 3.3-.4 5.4z"/><path d="M8 8.5v5"/><path d="M12 7.5v6"/><path d="M16 8.5v5"/></svg></a>
-                        <a href="https://youtube.com/" class="circle" aria-label="YouTube" title="YouTube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.5 6.5s-.7-2.1-2.8-2.4C17.9 3.8 12 3.8 12 3.8s-5.9 0-7.7.3C2.2 4.4 1.5 6.5 1.5 6.5S1 8.6 1 10.7v2.6c0 2.1.5 4.2.5 4.2s.7 2.1 2.8 2.4c1.8.3 7.7.3 7.7.3s5.9 0 7.7-.3c2.1-.3 2.8-2.4 2.8-2.4s.5-2.1.5-4.2v-2.6c0-2.1-.5-4.2-.5-4.2z"/><polygon points="10 15 15 12 10 9 10 15"/></svg></a>
+                        {% for link in site.data.socials.social %}
+                            <a href="{{ link.url }}" class="circle" aria-label="{{ link.name }}">
+                                {% include icons/{{ link.icon }}.svg %}
+                            </a>
+                        {% endfor %}
                     </div>
                 </div>
 
                 <div class="footer-social-group">
-                    <span class="footer-social-label">Support</span>
+                    <span class="footer-social-label">Support</span>  
                     <div class="social-circles">
-                        <a href="https://www.patreon.com/" class="circle" aria-label="Patreon" title="Patreon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="14" cy="9" r="5"/><rect x="4" y="4" width="4" height="16"/></svg></a>
-                        <a href="https://www.buymeacoffee.com/" class="circle" aria-label="Buy Me a Coffee" title="Buy Me a Coffee"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></a>
+                        {% for link in site.data.socials.support %}
+                            <a href="{{ link.url }}" class="circle" aria-label="{{ link.name }}">
+                                {% include icons/{{ link.icon }}.svg %}
+                            </a>
+                        {% endfor %}
                     </div>
                 </div>
 

@@ -19,9 +19,6 @@ section.visible {
   transform: translateY(0);
 }
 
-
-    
-
     .circle {
       position: relative;
       display: inline-flex;
@@ -37,8 +34,6 @@ section.visible {
         box-shadow var(--hover-duration) var(--hover-ease),
         border-color var(--hover-duration) var(--hover-ease);
     }
-
-    
 
     .circle:hover,
     .circle:focus-visible {
@@ -102,8 +97,6 @@ section.visible {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    
 
     .manifesto p em {
       font-style: normal;

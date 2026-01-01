@@ -1,5 +1,6 @@
 ---
 layout: tag
 tag: jekyll
-permalink: /tags/jekyll/
+title: Jekyll
+description: Posts about Jekyll static site development, including configuration, themes, plugins, and content workflows.
 ---

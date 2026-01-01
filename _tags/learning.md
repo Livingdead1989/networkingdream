@@ -1,5 +1,6 @@
 ---
 layout: tag
 tag: learning
-permalink: /tags/learning/
+title: Learning
+description: Learning notes, experiments, and reflections while exploring new technologies, tools, and development concepts.
 ---

@@ -1,5 +1,6 @@
 ---
 layout: tag
 tag: server
-permalink: /tags/server/
+title: Server
+description: Articles on server administration, configuration, troubleshooting, performance, and running services reliably.
 ---

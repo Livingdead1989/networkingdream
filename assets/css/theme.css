@@ -1,39 +1,138 @@
+/* =========================================================
+   Global Theme Tokens
+   Dark theme is DEFAULT
+   ========================================================= */
+
 /* ============================
-   Theme Variables
+   Base Theme (Dark)
 ============================ */
 
 :root {
-  /* Colors */
-  --bg: #0f1512;          /* Background color */
-  --text: #e6efe9;        /* Text color */
-  --accent: #7fbf9a;      /* Accent color */
-  --accent-dark: #5b8f72; /* Darker accent */
-  --accent-warm: #d6b866; /* Warm accent */
-  --panel: #18211d;       /* Panel background */
-  
-  /* Hover effects */
-  --hover-duration: 260ms;
-  --hover-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  /* -------------------------------------------------
+     Typography
+  ------------------------------------------------- */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* Motion settings */
-  --motion-fast: 160ms;
-  --motion-slow: 400ms;
-  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
-  
-  /* Theme toggle */
-  --theme-light-bg: #2a3a32;
-  --theme-dark-bg: #0f1512;
-  --theme-light-text: #c2cac4;
-  --theme-dark-text: #e6efe9;
+  /* -------------------------------------------------
+     Text
+  ------------------------------------------------- */
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --theme-light-text: #9ca3af;
+
+  /* -------------------------------------------------
+     Backgrounds
+  ------------------------------------------------- */
+  --bg: #0b1210;
+  --panel: #121a17;
+  --panel-soft: rgba(255,255,255,0.04);
+
+  /* -------------------------------------------------
+     Borders & Dividers
+  ------------------------------------------------- */
+  --border-subtle: rgba(255,255,255,0.08);
+  --border-soft: rgba(127,191,154,0.25);
+
+  /* -------------------------------------------------
+     Accents (CANONICAL)
+  ------------------------------------------------- */
+  --accent: #7fbf9a;        /* green */
+  --accent-dark: #4f8f73;
+  --accent-warm: #d6b866;   /* gold */
+
+  /* Derived accent helpers */
+  --accent-soft: rgba(127,191,154,0.12);
+  --accent-glow: rgba(127,191,154,0.35);
+  --accent-border: rgba(127,191,154,0.28);
+
+  /* -------------------------------------------------
+     Status Colors (callouts)
+  ------------------------------------------------- */
+  --note: #60a5fa;
+  --tip: #34d399;
+  --warning: #fbbf24;
+  --danger: #f87171;
+
+  /* -------------------------------------------------
+     Tags
+  ------------------------------------------------- */
+  --tag-background: rgba(127,191,154,0.14);
+
+  /* -------------------------------------------------
+     Gradients
+  ------------------------------------------------- */
+  --gradient-accent:
+    linear-gradient(135deg, rgba(127,191,154,0.85), rgba(214,184,102,0.85));
+
+  --gradient-accent-soft:
+    linear-gradient(135deg, rgba(127,191,154,0.45), rgba(214,184,102,0.45));
+
+  /* -------------------------------------------------
+     Shadows
+  ------------------------------------------------- */
+  --shadow-sm: 0 6px 18px rgba(0,0,0,0.25);
+  --shadow-md: 0 10px 28px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.45);
+
+  /* -------------------------------------------------
+     Motion
+  ------------------------------------------------- */
+  --hover-duration: 240ms;
+  --hover-ease: cubic-bezier(.2,.8,.2,1);
+
+  --motion-fast: 420ms;
+  --motion-ease: cubic-bezier(.2,.8,.2,1);
+
+  /* -------------------------------------------------
+     Radii
+  ------------------------------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
 }
 
-/* Theme-related overrides (example) */
-[data-theme="dark"] {
-  --bg: var(--theme-dark-bg);
-  --text: var(--theme-dark-text);
-}
+
+/* ============================
+   Light Theme (opt-in)
+============================ */
 
 [data-theme="light"] {
-  --bg: var(--theme-light-bg);
-  --text: var(--theme-light-text);
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --theme-light-text: #64748b;
+
+  --bg: #f8fafc;
+  --panel: #ffffff;
+  --panel-soft: rgba(0,0,0,0.04);
+
+  --border-subtle: rgba(0,0,0,0.08);
+  --border-soft: rgba(79,143,115,0.35);
+
+  --accent: #4f8f73;
+  --accent-dark: #2f6f55;
+  --accent-warm: #c9a94d;
+
+  --accent-soft: rgba(79,143,115,0.14);
+  --accent-glow: rgba(79,143,115,0.35);
+  --accent-border: rgba(79,143,115,0.35);
+
+  --tag-background: rgba(79,143,115,0.18);
+
+  --shadow-sm: 0 6px 18px rgba(0,0,0,0.12);
+  --shadow-md: 0 10px 28px rgba(0,0,0,0.18);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.25);
+}
+
+
+/* ============================
+   System Light Fallback
+============================ */
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+  }
 }

@@ -1,7 +1,7 @@
 ---
 title: NetworkingDream Website
 layout: project
-status: active
+status: active # active / updated / archived
 featured: true
 homepage: https://networkingdream.com
 
