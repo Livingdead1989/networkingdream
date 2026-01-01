@@ -57,7 +57,21 @@
   margin-left: 0.4em;
 }
 
+/* Status colors */
+.status-active {
+  background: rgba(0, 200, 120, 0.15);
+  color: var(--accent);
+}
 
+.status-updated {
+  background: rgba(255, 180, 60, 0.18);
+  color: var(--accent-warm);
+}
+
+.status-archived {
+  background: rgba(120, 120, 120, 0.18);
+  color: #888;
+}
 
 /* Angle differences */
 
