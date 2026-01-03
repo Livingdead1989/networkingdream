@@ -12,12 +12,15 @@
   </title>
 
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="author" content="{{ site.data.site.author.name }}">
+  {%- if site.data.site.author.avatar -%}
+    <meta name="author" content="{{ site.data.site.author.name }}">
+  {%- endif -%}
 
   <link rel="stylesheet" href="{{ '/assets/css/theme.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/nav.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/hero.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/toc.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/cards.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/footer.css' | relative_url }}" />
@@ -29,18 +32,29 @@
   <link rel="stylesheet" href="{{ '/assets/css/tag-pills.css' | relative_url }}" />
   <link rel="stylesheet" href="{{ '/assets/css/tags.css' | relative_url }}" />
 
+  {% if page.is_404 %}
+    <link rel="stylesheet" href="{{ '/assets/css/notfound.css' | relative_url }}">
+  {% endif %}
+
+
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
 
   <!-- Open Graph / Social -->
   <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:image" content="{{ site.url }}/assets/og/default.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+
+
+  <!-- Schema -->
+  {% include schema-breadcrumbs.html %}
+  {% include schema-person.html %}
 </head>

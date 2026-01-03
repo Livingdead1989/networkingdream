@@ -38,6 +38,44 @@
 }
 
 /* ============================
+   Tags link
+============================ */
+
+.search-tags-link {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.search-tags-link a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--hover-duration) var(--hover-ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.search-tags-link a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.search-tags-link a:hover .icon-tag {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.icon-tag {
+  width: 1.2em;
+  height: 1.2em;
+  opacity: 0.7;
+  transition:
+    opacity var(--hover-duration) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+/* ============================
    Search Results
 ============================ */
 

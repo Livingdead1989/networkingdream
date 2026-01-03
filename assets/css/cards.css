@@ -11,29 +11,45 @@
 .card {
   position: relative;
   padding: 1.6rem;
-  background: var(--panel);
-  border-radius: 16px;
-  overflow: hidden;
   color: var(--text);
   text-decoration: none;
-  border: 4px solid transparent;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  border: 3px solid transparent;
+
   background:
     linear-gradient(var(--panel), var(--panel)) padding-box,
-    linear-gradient(135deg, rgba(127,191,154,0.45), rgba(214,184,102,0.45)) border-box;
-  transition: transform var(--hover-duration) var(--hover-ease),
-              box-shadow var(--hover-duration) var(--hover-ease),
-              background var(--hover-duration) ease;
+    linear-gradient(
+      135deg,
+      var(--accent-border),
+      var(--accent-border-warm)
+    ) border-box;
+
+  transition:
+    transform var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease),
+    border-color var(--hover-duration) ease;
 }
 
 .card:hover {
-  transform: translateY(-6px) scale(1.015);
+  transform: translateY(-5px) scale(1.012);
   box-shadow:
-    0 12px 32px rgba(0,0,0,0.4),
-    0 0 22px rgba(127,191,154,0.22);
+    var(--shadow-lg),
+    0 0 18px var(--accent-glow);
+
   background:
     linear-gradient(var(--panel), var(--panel)) padding-box,
-    linear-gradient(135deg, rgba(127,191,154,0.85), rgba(214,184,102,0.85)) border-box;
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-warm)
+    ) border-box;
 }
+
+/* --------------------------------
+   Card content
+-------------------------------- */
 
 .card h3 {
   font-size: 1.15rem;
@@ -48,56 +64,76 @@
   height: 100%;
 }
 
+/* --------------------------------
+   Status badges
+-------------------------------- */
+
 .recent {
-  /* display: inline-block; */
   font-size: 0.7rem;
+  padding: 0.15em 0.55em;
   border-radius: 999px;
   letter-spacing: 0.08em;
-  padding: 0.15em 0.5em;
   margin-left: 0.4em;
+  background: var(--panel-soft);
+  box-shadow: inset 0 0 0 1px var(--border-subtle);
 }
 
 /* Status colors */
+
 .status-active {
-  background: rgba(0, 200, 120, 0.15);
-  color: var(--accent);
+  color: var(--accent-live);
 }
 
 .status-updated {
-  background: rgba(255, 180, 60, 0.18);
   color: var(--accent-warm);
 }
 
-.status-archived {
-  background: rgba(120, 120, 120, 0.18);
-  color: #888;
+.status-completed {
+  color: var(--accent);
 }
 
-/* Angle differences */
+.status-archived {
+  color: var(--text-muted);
+}
+
 
 #blog .card {
   background:
     linear-gradient(var(--panel), var(--panel)) padding-box,
-    linear-gradient(120deg, rgba(127,191,154,0.45), rgba(214,184,102,0.45)) border-box;
+    linear-gradient(
+      120deg,
+      var(--accent-border),
+      var(--accent-border-warm)
+    ) border-box;
 }
+
+/* Angle variations */
 #blog .card:hover {
   background:
     linear-gradient(var(--panel), var(--panel)) padding-box,
-    linear-gradient(120deg,
-      rgba(127,191,154,0.85),
-      rgba(214,184,102,0.85)
+    linear-gradient(
+      120deg,
+      var(--accent),
+      var(--accent-warm)
     ) border-box;
 }
+
 #projects .card {
   background:
     linear-gradient(var(--panel), var(--panel)) padding-box,
-    linear-gradient(200deg, rgba(127,191,154,0.45), rgba(214,184,102,0.45)) border-box;
+    linear-gradient(
+      200deg,
+      var(--accent-border),
+      var(--accent-border-warm)
+    ) border-box;
 }
+
 #projects .card:hover {
   background:
     linear-gradient(var(--panel), var(--panel)) padding-box,
-    linear-gradient(200deg,
-      rgba(127,191,154,0.85),
-      rgba(214,184,102,0.85)
+    linear-gradient(
+      200deg,
+      var(--accent),
+      var(--accent-warm)
     ) border-box;
 }

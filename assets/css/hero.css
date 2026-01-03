@@ -18,8 +18,20 @@ header {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(600px 300px at 50% 20%, rgba(127,191,154,0.12), transparent 60%),
-        radial-gradient(500px 250px at 70% 60%, rgba(214,184,102,0.08), transparent 65%);
+        radial-gradient(
+          600px 300px at 50% 20%,
+          var(--accent-soft),
+          transparent 60%
+        ),
+        radial-gradient(
+          500px 250px at 70% 60%,
+          color-mix(
+            in srgb,
+            var(--accent-warm) 25%,
+            transparent
+          ),
+          transparent 65%
+        );
       pointer-events: none;
     }
 
@@ -32,7 +44,7 @@ header {
     .hero-logo {
       width: 140px;
       margin: 0 auto 2rem;
-      filter: drop-shadow(0 0 22px rgba(127,191,154,0.35));
+      filter: drop-shadow(0 0 18px var(--accent-glow));
     }
 
     .hero-logo svg {
@@ -69,14 +81,23 @@ header {
       color: var(--text);
       border: 2px solid var(--accent-dark);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      background: var(--panel-soft);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 0 0 2px var(--accent-border),
+        0 0 18px var(--accent-glow);
     }
 
     .hero-btn.primary {
       border-color: var(--accent-warm);
     }
-
-    .hero-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 0 2px rgba(127,191,154,0.25),
-                  0 0 18px rgba(127,191,154,0.25);
+    .hero-btn.hero-btn.primary:hover {
+      box-shadow:
+        0 0 0 2px var(--accent-border-warm),
+        0 0 18px var(--accent-glow-warm);
     }

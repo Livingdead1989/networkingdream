@@ -22,8 +22,10 @@ permalink: /blog/
             <time datetime="{{ post.date | date_to_xmlschema }}">
               {{ post.date | date: "%B %d, %Y" }}
             </time>
+            {% if post.date and post.tags.size > 0 %}
+            ·
+            {% endif %}
             {% if post.tags %}
-              ·
               <span class="post-tags">
                 {% for tag in post.tags %}
                   <span class="tag">{{ tag }}</span>

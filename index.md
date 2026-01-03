@@ -1,6 +1,7 @@
 ---
 layout: default
 title: NetworkingDream
+is_homepage: true
 ---
 
 {% include hero.html %}
@@ -19,10 +20,12 @@ title: NetworkingDream
           <h3>
             {{ post.title }}
 
-            {% assign days = post.date | date: "%s" | minus: site.time | abs | divided_by: 86400 %}
+            {% assign post_time = post.date | date: "%s" %}
+            {% assign now_time  = site.time | date: "%s" %}
+            {% assign days = now_time | minus: post_time | divided_by: 86400 %}
 
             {% if days < 14 %}
-              <span class="recent">NEW</span>
+              <span class="recent status-updated">NEW</span>
             {% endif %}
           </h3>
 
@@ -47,12 +50,17 @@ title: NetworkingDream
             <h3>
               {{ project.title }}
 
-              {% assign days = page.updated | date: "%s" | minus: site.time | abs | divided_by: 86400 %}
+              {% if project.updated %}
+                {% assign updated_time = project.updated | date: "%s" %}
+                {% assign now_time = site.time | date: "%s" %}
+                {% assign days = now_time | minus: updated_time | divided_by: 86400 %}
 
-              {% if days < 30 %}
-                <span class="recent status-updated">UPDATED</span>
+                {% if days < 30 %}
+                  <span class="recent status-updated">UPDATED</span>
+                {% endif %}
               {% endif %}
             </h3>
+            
             <p>{{ project.description }}</p>
           </a>
         {% endif %}

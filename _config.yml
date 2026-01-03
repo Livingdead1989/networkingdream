@@ -7,7 +7,6 @@ baseurl: "/networkingdream"   # set to "/repo-name" if not a user site
 
 markdown: kramdown
 
-# permalink: /blog/:title/
 permalink: pretty
 
 collections:

@@ -6,21 +6,37 @@
   position: sticky;
   top: 0;
   z-index: 20;
+
   backdrop-filter: blur(10px);
-  background: rgba(24,33,29,0.75);
-  border-bottom: 1px solid rgba(127,191,154,0.15);
+  -webkit-backdrop-filter: blur(10px);
+
+  background: color-mix(
+    in srgb,
+    var(--panel) 85%,
+    transparent
+  );
+
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 nav {
-      position: sticky;
-      top: 0;
-      background: rgba(24,33,29,0.8);
-      backdrop-filter: blur(8px);
-      padding: 1rem 2rem;
-      align-items: center;
-      z-index: 10;
-      grid-template-columns: auto minmax(0, 1fr) auto;
-    }
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background: color-mix(
+    in srgb,
+    var(--panel) 88%,
+    transparent
+  );
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  padding: 1rem 2rem;
+  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
 
 
 nav ul {
@@ -193,8 +209,8 @@ nav a::after {
 .nav-toggle[aria-expanded="true"] {
   border-color: var(--accent);
   box-shadow:
-    0 0 0 2px rgba(127,191,154,0.25),
-    0 0 16px rgba(127,191,154,0.25);
+    0 0 0 2px var(--border-soft),
+    0 0 16px var(--border-soft);
 }
 /* pressed state */
 .theme-toggle[aria-pressed="true"],
@@ -220,8 +236,8 @@ nav a::after {
 
 .theme-toggle:hover, .nav-toggle:hover, .search-toggle:hover, .search-toggle:focus {
   transform: translateY(-1px);
-  box-shadow: 0 0 0 2px rgba(127,191,154,0.25),
-              0 0 16px rgba(127,191,154,0.25);
+  box-shadow: 0 0 0 2px var(--border-soft),
+              0 0 16px var(--border-soft);
 }
     
 .theme-icon {
@@ -273,7 +289,7 @@ body[data-theme="dark"] .theme-icon.moon {
     grid-gap: 1rem;
     margin-top: 0.75rem;
     padding: 1rem 0;
-    border-top: 1px solid rgba(127,191,154,0.2);
+    border-top: 1px solid var(--border-subtle);
     opacity: 0;
     transform: translateY(-8px);
     pointer-events: none;
@@ -291,7 +307,9 @@ body[data-theme="dark"] .theme-icon.moon {
     grid-column: 2;
     grid-row: 1;
   }
-  .theme-toggle, .nav-toggle, .search-button {
+  .theme-toggle, 
+  .nav-toggle, 
+  .search-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;

@@ -15,6 +15,27 @@ permalink: /search/
       aria-label="Search"
       autofocus
     >
+
+    <!-- link to tags -->
+    <p class="search-tags-link">
+      <a href="{{ '/tags/' | relative_url }}">
+        Explore by tag 
+        <svg
+          class="icon-tag"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M20.59 13.41 11 3.83V2H2v9l9.59 9.59a2 2 0 0 0 2.82 0l5.18-5.18a2 2 0 0 0 0-2.82Z"/>
+          <circle cx="7.5" cy="7.5" r="1.5"/>
+        </svg>
+  </a>
+    </p>
   </header>
 
   <ul id="search-results" class="search-results"></ul>

@@ -43,7 +43,15 @@
   width: 48px;
   height: 1px;
   align-self: center;
-  background: linear-gradient(90deg, transparent, rgba(127,191,154,0.4), transparent);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-border-warm),
+    transparent
+  );
+  
+
   opacity: 0.6;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
@@ -77,13 +85,28 @@
 @media (prefers-reduced-motion: no-preference) {
   .about-circle:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 0 2px rgba(127,191,154,0.25),
-                0 0 18px rgba(127,191,154,0.35);
-    animation: glowPulse 1.8s ease-in-out infinite;
+    box-shadow:
+      0 0 0 2px var(--accent-border),
+      0 0 18px var(--accent-glow);
+    animation: glowPulseOnce 900ms ease-out both;
+
   }
 }
 
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 2px rgba(127,191,154,0.25), 0 0 18px rgba(127,191,154,0.25); }
-  50% { box-shadow: 0 0 0 2px rgba(127,191,154,0.4), 0 0 26px rgba(127,191,154,0.45); }
+@keyframes glowPulseOnce {
+  0% {
+    box-shadow:
+      0 0 0 2px var(--accent-border),
+      0 0 0 var(--accent-glow);
+  }
+  60% {
+    box-shadow:
+      0 0 0 2px var(--accent-border-strong),
+      0 0 22px var(--accent-glow-strong);
+  }
+  100% {
+    box-shadow:
+      0 0 0 2px var(--accent-border),
+      0 0 14px var(--accent-glow);
+  }
 }

@@ -1,11 +1,12 @@
 /* ============================
    Section reveal
 ============================ */
+
 main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
 
 section {
   margin-bottom: 5rem;
@@ -19,136 +20,167 @@ section.visible {
   transform: translateY(0);
 }
 
-    .circle {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.18);
-      color: inherit;
-      transition:
-        transform var(--hover-duration) var(--hover-ease),
-        box-shadow var(--hover-duration) var(--hover-ease),
-        border-color var(--hover-duration) var(--hover-ease);
-    }
+/* --------------------------------
+   Circle (system UI element)
+-------------------------------- */
 
-    .circle:hover,
-    .circle:focus-visible {
-      border-color: rgba(255,255,255,0.35);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.25),
-        0 0 12px rgba(120, 200, 160, 0.25);
-    }
+.circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  color: inherit;
+  transition:
+    transform var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease),
+    border-color var(--hover-duration) var(--hover-ease);
+}
 
-    .circle:hover {
-      transform: translateY(-2px);
-      background: var(--accent-warm);
-      color: #000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+.circle:hover,
+.circle:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--accent-border);
+  box-shadow:
+    inset 0 0 0 1px var(--accent-border),
+    0 0 10px var(--accent-soft);
+  background: transparent;
+  color: inherit;
+}
 
-   .hover-raise:hover {
-      transform: translateY(-6px) scale(1.015);
-      box-shadow:
-        0 12px 32px rgba(0,0,0,0.4),
-        0 0 22px rgba(127,191,154,0.22);
-    }
+/* --------------------------------
+   Hover raise (featured only)
+-------------------------------- */
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
+.hover-raise {
+  transition:
+    transform var(--hover-duration) cubic-bezier(.2,.8,.2,1),
+    box-shadow var(--hover-duration) cubic-bezier(.2,.8,.2,1);
+  will-change: transform, box-shadow;
+}
 
-    .manifesto-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.6;
-      margin-top: 2rem;
-      margin-bottom: 0.4rem;
-    }
+.hover-raise:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 18px var(--accent-glow);
+}
 
-    .manifesto {
-      margin-top: 1.8rem;
-      padding: 1.6rem 1.8rem;
-      background:
-        linear-gradient(180deg, rgba(127,191,154,0.06), rgba(127,191,154,0.02)),
-        var(--panel);
-      border-radius: 16px;
-      border: 2px solid rgba(127,191,154,0.25);
-      box-shadow:
-        inset 0 0 0 1px rgba(214,184,102,0.08),
-        0 10px 30px rgba(0,0,0,0.25);
-    }
+/* --------------------------------
+   Typography
+-------------------------------- */
 
-    .manifesto p {
-      margin: 0.4rem 0;
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
 
-    .manifesto p strong {
-      font-size: 1.05rem;
-      letter-spacing: 0.02em;
-      background: linear-gradient(90deg, var(--accent), var(--accent-warm));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+.manifesto-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-top: 2rem;
+  margin-bottom: 0.4rem;
+}
 
-    .manifesto p em {
-      font-style: normal;
-      opacity: 0.75;
-    }
+/* --------------------------------
+   Manifesto block
+-------------------------------- */
 
-    .hover-raise {
-      transition:
-        transform var(--hover-duration) cubic-bezier(.2,.8,.2,1),
-        box-shadow var(--hover-duration) cubic-bezier(.2,.8,.2,1);
-      will-change: transform, box-shadow;
-    }
+.manifesto {
+  margin-top: 1.8rem;
+  padding: 1.6rem 1.8rem;
 
-    @media (prefers-reduced-motion: no-preference) {
-      .hover-raise:hover {
-        animation: hoverRaiseIn 420ms cubic-bezier(.2,.8,.2,1) both;
-      }
+  background:
+    linear-gradient(
+      180deg,
+      var(--accent-surface),
+      transparent 70%
+    ),
+    var(--panel);
 
-      .hover-raise:not(:hover) {
-        animation: hoverRaiseOut 320ms cubic-bezier(.4,0,.6,1) both;
-      }
-    }
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--accent-border);
 
-    @keyframes hoverRaiseIn {
-      from {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 0 0 rgba(0,0,0,0);
-      }
-      60% {
-        transform: translateY(-7px) scale(1.018);
-      }
-      to {
-        transform: translateY(-6px) scale(1.015);
-        box-shadow:
-          0 12px 32px rgba(0,0,0,0.4),
-          0 0 22px rgba(127,191,154,0.22);
-      }
-    }
+  box-shadow:
+    inset 0 0 0 1px var(--accent-border),
+    var(--shadow-md);
+}
 
-    @keyframes hoverRaiseOut {
-      from {
-        transform: translateY(-6px) scale(1.015);
-        box-shadow:
-          0 12px 32px rgba(0,0,0,0.4),
-          0 0 22px rgba(127,191,154,0.22);
-      }
-      to {
-        transform: translateY(0) scale(1);
-        box-shadow: 0 0 0 rgba(0,0,0,0);
-      }
-    }
+.manifesto p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
 
+.manifesto p strong {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-warm)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.manifesto p em {
+  font-style: normal;
+  opacity: 0.75;
+}
+
+/* --------------------------------
+   Motion refinement
+-------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .hover-raise:hover {
+    animation: hoverRaiseIn var(--motion-fast) var(--motion-ease) both;
+  }
+
+  .hover-raise:not(:hover) {
+    animation: hoverRaiseOut 320ms cubic-bezier(.4,0,.6,1) both;
+  }
+
+  .manifesto {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+}
+
+ @keyframes hoverRaiseIn {
+  from {
+    transform: translateY(0) scale(1);
+    box-shadow: none;
+  }
+  to {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow:
+      var(--shadow-lg),
+      0 0 18px var(--accent-glow);
+  }
+}
+
+@keyframes hoverRaiseOut {
+  from {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow:
+      var(--shadow-lg),
+      0 0 18px var(--accent-glow);
+  }
+  to {
+    transform: translateY(0) scale(1);
+    box-shadow: none;
+  }
+}
+
+/* --------------------------------
+   Reduced motion
+-------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
   section {
